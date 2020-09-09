@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/meanmenu.css')}}">
+        <!-- Icofont -->
+        <link rel="stylesheet" href="C:/Users/Mahajan/Desktop/SIH2020 july/icofont/icofont.min.css">
+        <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+
+        <!-- Nice Select JS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/nice-select.css')}}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.theme.default.min.css')}}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/animate.css')}}">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/flaticon.css')}}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/style.css')}}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/responsive.css')}}">
+
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/try.css')}}">
+
+        
+            <style>
+            .main-nav nav .navbar-nav .nav-item {
+            position: relative;
+            padding: 15px 8px;
+
+
+}
+
+        </style>
+        <title>Recruit Uttarakhand.in</title>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+    </head>
+    <body>
+
+       
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" >
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{url_for('compdashboard')}}" class="nav-link dropdown-toggle">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companydetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companywisejobs')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('postajob')}}" class="nav-link"> Post A New Job</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobs')}}" class="nav-link">Posted Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobsapps')}}" class="nav-link">Applications Recieved</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatelist')}}" class="nav-link">Candidates</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in_company %}
+                                <a class="login-btn" href="/logout_company">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Area -->
+
+        <!-- Page Title -->
+        <div class="page-title-area" style="height:250px; width:100%;">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>Candidate Details</h2>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-simple-right"></i>
+                                </li>
+                                <li>Applcations Recieved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title -->
+        <br>
+        <!-- Application Details -->    
+
+        <div class="single-profile-area pt-40 col-lg-12">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <p class="alert-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <div class="row align-items-center">
+                    <div class="single-profile-item">
+                        <div class="single-profile-item">
+                            <div class="single-profile-right">
+                                <div class="card" style="width: 70rem;">
+                                    <div class="single-profile-left">
+
+
+                                        <div id = "jobtag">
+                                            <table id="joblistbox" class="table table-striped">
+
+
+                                                <tr>
+                                                    <th>Application No.</th>
+                                                    <th>Job Title</th>
+                                                    <th>User Name</th>
+                                                    <th>Vacancies</th>
+                                                    <th>No. of Applicants</th>
+                                                    <th>Applied On</th>
+                                                    <th>Status</th>
+                                                    <th>Interview</th>
+                                                    <th style="text-align: right;">Action</th>
+                                                    <th style="text-align: right;">  </th>
+                                                </tr>
+
+                                                {% for row in data %}
+                                                <tr>
+                                                    <td>{{row[0][0]}}</td>
+                                                    <td><a href = "/jobdetails/{{row[0][1]}}">{{row[1]}}</a></td>
+                                                    <td>{{row[2]+" "+row[3]+" "+row[4]}}</td>
+                                                    <td>{{row[5]}}</td>
+                                                    <td>{{row[6]}}</td>
+                                                    <td>{{row[0][5].strftime("%Y-%m-%d")}}</td>
+                                                    <td>{{row[0][4]}}</td>
+                                                    <td>{% if row[0][9] %}{{row[0][11]}}{% else %}NA{% endif %}</td>
+                                                    <td style="display:none;">{{row.0}}</td>
+                                                    <td>
+                                                        <a href ="compappstatus/{{row[0][0]}}"  class="btn btn-outline-info waves-effect">View Application</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/publiccandidatedetails/{{row[0][2]}}" class="btn btn-outline-danger waves-effect" >View Profile</a>
+                                                    </td>
+                                                </tr>
+
+
+                                                {% endfor %}
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Application Details -->
+
+        <style>
+        .footer {
+        background-color:#ffd9b3;
+        background: -webkit-gradient(linear, left top, right top, from(#ffd9b3), color-stop(63%, #ffb366));
+        color: #FFFFFF;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        }
+        </style>
+        <div class="footer" style="font-size: 20px;"><center><p> © 2000 – 2018 Code_Crunch Pvt.Ltd All Rights reserved<br>
+    All trademarks and copyrights held by respective owners. <br>
+        Terms and Policy</p></center></div>
+
+                
+
+
+        <!-- Essential JS -->
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/popper.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="static/js/jquery.meanmenu.js"></script>
+        <!-- Nice Select JS -->
+        <script src="static/js/jquery.nice-select.min.js"></script>
+        <!-- Mixitup JS -->
+        <script src="static/js/jquery.mixitup.min.js"></script>
+        <!-- Counter JS -->
+        <script src="static/js/waypoints.min.js"></script>
+        <script src="static/js/jquery.counterup.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="static/js/owl.carousel.min.js"></script>
+        <!-- Form Ajaxchimp JS -->
+        <script src="static/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator JS -->
+        <script src="static/js/form-validator.min.js"></script>
+        <!-- Contact JS -->
+        <script src="static/js/contact-form-script.js"></script>
+        <!-- Wow JS -->
+        <script src="static/js/wow.min.js"></script>
+        <!-- Custom JS -->
+        <script src="static/js/custom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous"></script>
+
+    </body>
+</html>

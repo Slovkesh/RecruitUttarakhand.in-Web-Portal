@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://templates.hibootstrap.com/gable/default/post-a-job.html -->
+<html lang="zxx"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/meanmenu.css') }}">
+        <!-- Icofont -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/icofont.min.css') }}">
+        <!-- Nice Select JS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="static/css/select2.min.css" />
+        
+        <style>
+            .select2-dropdown {top: 22px !important; left: 8px !important;}
+        </style>
+        <style type="text/css">
+                                    .grey_color {
+                                        color: black;
+                                      font-size: 14px;
+                                  }
+        </style>
+
+
+        <style>
+            * {
+              box-sizing: border-box;
+          }
+
+          body {
+              font: 16px Arial;  
+          }
+
+          /*the container must be positioned relative:*/
+          .autocomplete {
+              position: relative;
+              display: inline-block;
+          }
+
+          input {
+              border: 1px solid transparent;
+              background-color: #f1f1f1;
+              padding: 10px;
+              font-size: 16px;
+          }
+
+          input[type=text] {
+              background-color: #f1f1f1;
+              width: 100%;
+          }
+
+          input[type=submit] {
+              background-color: DodgerBlue;
+              color: #fff;
+              cursor: pointer;
+          }
+
+          .autocomplete-items {
+              position: absolute;
+              border: 1px solid #d4d4d4;
+              border-bottom: none;
+              border-top: none;
+              z-index: 99;
+              /*position the autocomplete items to be the same width as the container:*/
+              top: 100%;
+              left: 0;
+              right: 0;
+          }
+
+          .autocomplete-items div {
+              padding: 10px;
+              cursor: pointer;
+              background-color: #fff; 
+              border-bottom: 1px solid #d4d4d4; 
+          }
+
+          /*when hovering an item:*/
+          .autocomplete-items div:hover {
+              background-color: #e9e9e9; 
+          }
+
+          /*when navigating through the items using the arrow keys:*/
+          .autocomplete-active {
+              background-color: DodgerBlue !important; 
+              color: #ffffff; 
+          }
+      </style>
+
+
+        <style>
+        .main-nav nav .navbar-nav .nav-item {
+        position: relative;
+        padding: 15px 8px;
+        }
+        
+        <style type="text/css">
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #ccd;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        tr:nth-child(odd) {
+            background-color: #ddeedd;
+        }
+        .highlight {
+        background-color: Yellow;
+        color: Green;
+        }
+    </style>
+    <script>
+    function universal_validation(form){
+        // var choice = document.forms["login"]["role"];
+        var uname = document.forms["login"]["uname"];
+        var password = document.forms["login"]["password"];
+        // if(choice.value =="")
+        // {
+        //     window.alert("Please enter your role");
+        //     choice.focus();
+        //     return false;
+        // }
+        if(uname.value =="")
+        {
+            window.alert("Please enter your username");
+            uname.focus();
+            return false;
+        }
+        else if(password.value =="")
+        {
+            window.alert("Please enter your password");
+            password.focus();
+            return false;
+        }
+    }
+</script>
+        <title>Recruit Uttarakhand.in</title>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+    </head>
+    <body>
+
+        <!-- Preloader -->
+        <!-- <div class="loader" style="display: none;">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- End Preloader -->
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%">
+                                <li class="nav-item">
+                                    <a href="{{url_for('compdashboard')}}" class="nav-link dropdown-toggle">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companydetails')}}" class="nav-link">Company Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companywisejobs')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('postajob')}}" class="nav-link"> Post A New Job</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobs')}}" class="nav-link">Posted Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobsapps')}}" class="nav-link">Applications Recieved</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatelist')}}" class="nav-link">Candidates</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in_company %}
+                                <a class="login-btn" href="/logout_company">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Area -->
+
+        <!-- Page Title -->
+        <div class="page-title-area" style="height:250px; width:100%;">
+
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>Post A Job</h2>
+                            <ul>
+                                <li>
+                                    <a href="https://templates.hibootstrap.com/gable/default/index.html">Home</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-simple-right"></i>
+                                </li>
+                                <li>Post A Job</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title -->
+
+        <!-- Post A Job -->
+        <div class="post-job-area pt-100">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <p class="alert-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <div class="post-job-item">
+                    <form id="uploadform" method = "POST" enctype = "multipart/form-data">
+                       <input class="btn btn-outline-info waves-effect" type = "file" name = "file" />
+                       <button class="btn btn-outline-info waves-effect" id="gettable" type="button" style = "height :45px">Upload</button>
+                   </form>
+
+                   <p style="color:black;">Result: <span id="resultFullName" style="color:black;"> here</span></p>
+                   <p><span id = "spnText"></span></p>
+                   <span id = "noid"></span>
+                    
+                </div>
+                <div class="post-job-item">
+
+                    <form >
+
+                        <div class="post-job-heading">
+                            <h2>Post a Job</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" class="form-control" placeholder="UX/UI Designer", 
+                                    name = "jtl", id="jtl" >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Age Limit</label>
+                                    <input type="text" class="form-control" placeholder="55", name = "al", id = "al">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Salary</label>
+                                    <input type="text" class="form-control" placeholder="Winbrans.com", name = "sal", id = "sal">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Vacancies</label>
+                                    <input type="text" class="form-control" placeholder="10", name="vac", id = "vac">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" class="form-control" placeholder="210-27 Quadra, Market Street, Victoria Canada", name="loc", id = "loc">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Last Date</label>
+                                    <input type="date" class="form-control", name = "ld", id = "ld" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Experience Required (In Years)</label>
+                                    <input type="text" class="form-control" placeholder="10", name = "exp", id = "exp">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    
+                                        <label>Job Type</label>
+                                        <select class="form-control" name="jtype" id="jtype">
+                                          <option value="Full Time">Full Time</option>
+                                          <option value="Part Time">Part Time</option>
+                                          <option value="Intern">Intern</option>
+                                        </select>
+                                    
+                                </div>
+                            </div>
+
+                            <!--div class="col-lg-6">
+                                
+                                
+                                    
+                                        <select  id="skills">
+                                          <option value="Full Time" class = "grey_color">Full Time</option>
+                                          <option value="Part Time" class = "grey_color">Part Time</option>
+                                          <option value="Intern" class = "grey_color">Intern</option>
+                                        </select>
+                                    
+                                
+                            </div-->
+
+                            <div class="col-lg-6"> <label style="color: black;">Enter your top 5 skills</label> </div>
+
+                            <div class="col-lg-12">
+
+                               
+                                  <div class="autocomplete" style="width:150px; color: black;">
+                                    <input id="myInput1" type="text" name="myCountry" placeholder="Skill1">
+                                  </div>
+                                  <div class="autocomplete" style="width:150px; color: black;">
+                                    <input id="myInput2" type="text" name="myCountry" placeholder="Skill2">
+                                  </div>
+                                  <div class="autocomplete" style="width:150px; color: black;">
+                                    <input id="myInput3" type="text" name="myCountry" placeholder="Skill3">
+                                  </div>
+                                  <div class="autocomplete" style="width:150px; color: black;">
+                                    <input id="myInput4" type="text" name="myCountry" placeholder="Skill4">
+                                  </div>
+                                  <div class="autocomplete" style="width:150px; color: black;">
+                                    <input id="myInput5" type="text" name="myCountry" placeholder="Skill5">
+                                  </div>
+                                
+
+                            </div>                         
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Job Description</label>
+                                    <textarea id="jd" rows="8" class="form-control" name="jd"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-lg-6">
+                                <button type="button" class="btn create-ac-btn" id="jobformupload">Post</button>
+                            </div>
+                            <div class = "col-lg-6" id = "msg1">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Post A Job -->
+
+        <!-- Footer -->
+        <style>
+        .footer {
+        background-color:#ffd9b3;
+        background: -webkit-gradient(linear, left top, right top, from(#ffd9b3), color-stop(63%, #ffb366));
+        color: #FFFFFF;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        }
+        </style>
+        <div class="footer" style="font-size: 20px;"><center><p> © 2000 – 2018 Code_Crunch Pvt.Ltd All Rights reserved<br>
+    All trademarks and copyrights held by respective owners. <br>
+        Terms and Policy</p></center></div>
+        <!-- End Footer -->
+
+
+        
+        <script>        
+
+            $('#noid').on('DOMSubtreeModified', function() {
+                $('#tblData tbody').on('click', 'tr', function() {
+                    //get row contents into an array
+                    var tableData = $(this).children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+    
+                    $('#jtl').val(tableData[1]);
+                    $('#jd').val(tableData[2]);
+                    $('#al').val(tableData[3]);
+                    $('#sal').val(tableData[4]);
+                    $('#vac').val(tableData[5]);
+                    $('#loc').val(tableData[6]);
+                    //$('#ld').val(tableData[7]);
+                });
+                
+            });    
+        </script>
+
+
+
+        <script type="text/javascript">
+            $(function() {
+
+                $('#jobformupload').click(function(e) {
+                    var jtl = $('#jtl').val();
+                    var al = $('#al').val();
+                    var sal = $('#sal').val();
+                    var vac = $('#vac').val();
+                    var loc = $('#loc').val();
+                    var ld = $('#ld').val();
+                    var exp = $('#exp').val();
+                    var jtype = $('#jtype').val();
+                    var jd = $('#jd').val();
+                    var s1 = $('#myInput1').val()
+                    var s2 = $('#myInput2').val()
+                    var s3 = $('#myInput3').val()
+                    var s4 = $('#myInput4').val()
+                    var s5 = $('#myInput5').val()
+                    console.log(jtl, al, sal, vac, loc, ld, exp, jtype, jd, s1, s2, s3, s4, s5);
+                    $.ajax({
+                    method: "POST",
+                    url: '/uploadfajax',
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({'jtl': jtl, 'al': al, 'sal': sal, 'vac': vac, 'loc': loc, 'ld': ld, 'exp': exp, 'jtype': jtype, 'jd': jd, 's1': s1, 's2': s2, 's3': s3, 's4': s4, 's5': s5}),
+                    dataType: "json",
+                    success: function(data) {
+                        alert("Data Uploaded Successfully!");
+                        $('#jtl').val("");
+                        $('#jd').val("");
+                        $('#al').val("");
+                        $('#sal').val("");
+                        $('#vac').val("");
+                        $('#loc').val("");
+                        $('#ld').val("");
+                        $('#exp').val("");
+                        $('#myInput1').val("");
+                        $('#myInput2').val("");
+                        $('#myInput3').val("");
+                        $('#myInput4').val("");
+                        $('#myInput5').val("");
+                        //$('#msg1').html('<span style="color: green;">Data Uploaded Successfully</span>');
+                    }
+
+                    });
+             }); 
+
+
+                
+                $('#gettable').click(function() {
+                    console.log('Reached Jquery');
+                    event.preventDefault();
+                    var form_data = new FormData($('#uploadform')[0]);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/uploadajax',
+                        data: form_data,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json'
+                    }).done(function(data, textStatus, jqXHR){
+                        console.log(data);
+                        console.log(textStatus);
+                        console.log(jqXHR);
+                        console.log('Success!');
+                        $("#noid").html(data['table']);
+                        $("#resultFullName").text(data['user_image']);
+                    }).fail(function(data){
+                        alert('error!');
+                    });
+                });
+            }); 
+        </script>
+        
+
+
+
+        <script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Problem-Solving", "Communication", "Teamwork", "Time management", "Leadership", "Creativity", "Marketing", "Data Analysis", "Project Management", "Critical Thinking", "SEO/SEM", "Web scraping", "Testing/Debugging", "Machine learning", "Cloud computing", "Mobile app development", "UX design", "Artificial intelligence", "Scrum", "Git", "Oracle", ".Net", "Python", "Java", 
+    "AngularJS"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput1"), countries);
+autocomplete(document.getElementById("myInput2"), countries);
+autocomplete(document.getElementById("myInput3"), countries);
+autocomplete(document.getElementById("myInput4"), countries);
+autocomplete(document.getElementById("myInput5"), countries);
+</script>
+
+
+
+
+
+
+
+
+        <!-- Essential JS -->
+        <script src="./Gable - Job Portal HTML Template_files/jquery.min.js.download"></script>
+        <script src="./Gable - Job Portal HTML Template_files/popper.min.js.download"></script>
+        <script src="./Gable - Job Portal HTML Template_files/bootstrap.min.js.download"></script>
+        <!-- Meanmenu JS -->
+        <script src="./Gable - Job Portal HTML Template_files/jquery.meanmenu.js.download"></script>
+        <!-- Nice Select JS -->
+        <script src="./Gable - Job Portal HTML Template_files/jquery.nice-select.min.js.download"></script>
+        <!-- Mixitup JS -->
+        <script src="./Gable - Job Portal HTML Template_files/jquery.mixitup.min.js.download"></script>
+        <!-- Counter JS -->
+        <script src="./Gable - Job Portal HTML Template_files/waypoints.min.js.download"></script>
+        <script src="./Gable - Job Portal HTML Template_files/jquery.counterup.min.js.download"></script>
+        <!-- Owl Carousel JS -->
+        <script src="./Gable - Job Portal HTML Template_files/owl.carousel.min.js.download"></script>
+        <!-- Form Ajaxchimp JS -->
+		<script src="./Gable - Job Portal HTML Template_files/jquery.ajaxchimp.min.js.download"></script>
+		<!-- Form Validator JS -->
+		<script src="./Gable - Job Portal HTML Template_files/form-validator.min.js.download"></script>
+		<!-- Contact JS -->
+        <script src="./Gable - Job Portal HTML Template_files/contact-form-script.js.download"></script>
+        <!-- Wow JS -->
+        <script src="./Gable - Job Portal HTML Template_files/wow.min.js.download"></script>
+        <!-- Custom JS -->
+        <script src="./Gable - Job Portal HTML Template_files/custom.js.download"></script>
+
+    
+<div id="toTop" class="back-to-top-btn" style="display: none;"><i class="icofont-dotted-up"></i></div></body></html>

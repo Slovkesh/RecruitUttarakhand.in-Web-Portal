@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/icofont/icofont.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/meanmenu.css')}}">
+        <!-- Icofont -->
+        <link rel="stylesheet" href="C:/Users/Mahajan/Desktop/SIH2020 july/icofont/icofont.min.css">
+        <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+
+        <!-- Nice Select JS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/nice-select.css')}}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.theme.default.min.css')}}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/animate.css')}}">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/flaticon.css')}}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/style.css')}}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/responsive.css')}}">
+
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/try.css')}}">
+        <title>Recruit Uttarakhand</title>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+        <style>
+        .footer {
+            background-color:#ffd9b3;
+            background: -webkit-gradient(linear, left top, right top, from(#ffd9b3), color-stop(63%, #ffb366));
+            color: #FFFFFF;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+           
+        } 
+        </style>
+    </head>
+    <body>
+
+        <!-- Preloader -->
+        
+        <!-- End Preloader -->
+
+        <!-- Start Navbar Area -->
+        {% if session.logged_in %}
+        <style>
+        .main-nav nav .navbar-nav .nav-item {
+        position: relative;
+        padding: 15px 8px;
+        }
+        </style>
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" >
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{url_for('cdashboard')}}" class="nav-link dropdown-toggle">Dashboard </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatedetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('joblist')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('joblist')}}" class="nav-link">Job List</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">Saved Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('myapplications')}}" class="nav-link">My Applications</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companylist')}}" class="nav-link">Companies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in %}
+                                <a class="login-btn" href="/logout">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>  
+        {% elif session.logged_in_company %} 
+        <style>
+        .main-nav nav .navbar-nav .nav-item {
+        position: relative;
+        padding: 15px 8px;
+        }
+        </style>
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{url_for('compdashboard')}}" class="nav-link dropdown-toggle">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companydetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companywisejobs')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('postajob')}}" class="nav-link"> Post A New Job</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobs')}}" class="nav-link">Posted Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobsapps')}}" class="nav-link">Applications Recieved</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatelist')}}" class="nav-link">Candidates</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in_company %}
+                                <a class="login-btn" href="/logout_company">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="navbar-area fixed-top" style="text-align: right;">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo">
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+           <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px"> </a>
+
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" style="margin-bottom:0px;">
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{ url_for('home')}}" class="nav-link dropdown-toggle">Home </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('joblist')}}" class="nav-link dropdown-toggle">Jobs </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn">
+                                <a class="login-btn" href="{{url_for('login')}}">
+                                    <i class="icofont-plus-square"></i>
+                                    Login
+                                </a>
+                                <a class="sign-up-btn" href="{{url_for('create_account')}}">
+                                    <i class="icofont-user-alt-4"></i>
+                                    Sign Up
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- End Navbar Area -->
+
+        <!-- Page Title -->
+        <div class="page-title-area" style="height:250px; width:100%;">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>Write A Blog</h2>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-simple-right"></i>
+                                </li>
+                                <li>Write A Blog
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title -->
+
+        <!-- Blog Details -->
+        <!-- Dashboard -->
+        <div class="dashboard-area pt-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    
+                
+                        <div class="create-information">
+                            <form action="{{ url_for('addblog') }}" method="POST">
+                               <h3>Fill in Details</h3>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Your Name</label>
+                                            <input type="text" class="form-control" name="pname"  placeholder="Aikin Ward" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Your Email</label>
+                                            <input type="email" class="form-control" name="email"  placeholder="hello@gable.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Date of Birth</label>
+                                            <input type="date" class="form-control" name="dob"  placeholder="21 / 2 / 1997" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Your Phone</label>
+                                            <input type="text" class="form-control" name="phone"  placeholder="+12345678910" required>
+                                        </div>
+                                    </div><br>
+                                    <h3>Write Blog Here</h3>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Blog</label>
+                                            <textarea id="your_message" class="form-control" name="blogg"  rows="19" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="login-sign-in">
+                      <div class="text-center">
+                        <button type="submit" class="btn login-btn" style="background: linear-gradient(90deg, #ffb366 0%, #ffb366 63%);font-size: 16px;padding: 12px 70px;margin-top: 20px;margin-bottom: 35px; color: #ffffff"><b>Submit</b></button>
+                    </div>
+                </div>     
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer" style="font-size: 20px;"><center><p> © 2000 – 2018 Code_Crunch Pvt.Ltd All Rights reserved<br>
+    All trademarks and copyrights held by respective owners. <br>
+        Terms and Policy</p></center></div>
+                           
+                                      
+        
+
+                <!-- Subscribe Form -->
+               
+
+        <!-- Essential JS -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="assets/js/jquery.meanmenu.js"></script>
+        <!-- Nice Select JS -->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!-- Mixitup JS -->
+        <script src="assets/js/jquery.mixitup.min.js"></script>
+        <!-- Counter JS -->
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Form Ajaxchimp JS -->
+		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+		<!-- Form Validator JS -->
+		<script src="assets/js/form-validator.min.js"></script>
+		<!-- Contact JS -->
+        <script src="assets/js/contact-form-script.js"></script>
+        <!-- Wow JS -->
+        <script src="assets/js/wow.min.js"></script>
+        <!-- Custom JS -->
+        <script src="assets/js/custom.js"></script>
+
+    </body>
+</html>

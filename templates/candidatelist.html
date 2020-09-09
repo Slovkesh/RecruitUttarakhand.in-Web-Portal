@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="static/css/meanmenu.css">
+        <!-- Icofont -->
+        <link rel="stylesheet" href="static/icofont/icofont.min.css">
+        <link rel="stylesheet" href="static/icofont/icofont.css">
+        <!-- Nice Select JS -->
+        <link rel="stylesheet" href="static/css/nice-select.css">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="static/css/animate.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="static/fonts/flaticon.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="static/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="static/css/responsive.css">
+
+        <title>Recruit Uttarakhand</title>
+        <style>
+            .main-nav nav .navbar-nav .nav-item {
+            position: relative;
+            padding: 15px 8px;
+
+
+}
+
+        </style>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+    </head>
+    <body>
+
+        <!-- Preloader -->
+       
+        <!-- Start Navbar Area -->
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{url_for('compdashboard')}}" class="nav-link dropdown-toggle">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companydetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companywisejobs')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('postajob')}}" class="nav-link"> Post A New Job</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobs')}}" class="nav-link">Posted Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobsapps')}}" class="nav-link">Applications Recieved</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatelist')}}" class="nav-link">Candidates</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in_company %}
+                                <a class="login-btn" href="/logout_company">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Area -->
+
+        <!-- Page Title -->
+        <div class="page-title-area"style="height:250px; width:100%;">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>Candidate List</h2>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-simple-right"></i>
+                                </li>
+                                <li>Candidate List</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title -->
+
+        <!-- Profile -->
+        <section class="profile-area profile-area-two pt-100">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <p class="alert-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".3s">
+                            <img src="static/img/home-1/profile/1.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Jerry Hudson</h3>
+                                <span>Business Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".4s">
+                            <img src="{{pp}}" alt="Profile" style="height: 250px;width: 200px">
+                            <div class="profile-inner">
+                                <h3>Jac Jacson</h3>
+                                <span>Web Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".5s">
+                            <img src="static/img/home-1/profile/3.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Tom Potter</h3>
+                                <span>UX/UI Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".6s">
+                            <img src="static/img/home-1/profile/4.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Shane Mac</h3>
+                                <span>SEO Consultant </span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".3s">
+                            <img src="static/img/home-1/profile/5.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Liam Noah</h3>
+                                <span>Marketing Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".4s">
+                            <img src="static/img/home-1/profile/6.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>William James</h3>
+                                <span>Management Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".5s">
+                            <img src="static/img/home-1/profile/7.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Lucas Mason</h3>
+                                <span>Networking Consultant</span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="profile-item wow fadeInUp" data-wow-delay=".6s">
+                            <img src="static/img/home-1/profile/8.jpg" alt="Profile">
+                            <div class="profile-inner">
+                                <h3>Daniel Henry</h3>
+                                <span>Data Consultant </span>
+                                <a href="candidate-details.html">View Profile
+                                    <i class="icofont-swoosh-right"></i>
+                                </a>
+                                <div class="profile-heart">
+                                    <a href="candidate-details.html">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Profile -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+
+                <!-- Subscribe Form -->
+                <div class="subscribe-area">
+                    <div class="section-title">
+                        <h2>Subscribe Newsletter</h2>
+                    </div>
+                    <div class="subscribe-shape">
+                        <img src="static/img/shape/1.png" alt="Shape">
+                        <img src="static/img/shape/1.png" alt="Shape">
+                        <img src="static/img/shape/1.png" alt="Shape">
+                        <img src="static/img/shape/1.png" alt="Shape">
+                        <img src="static/img/shape/2.png" alt="Shape">
+                    </div>
+                    <div class="subscribe-item">
+                        <form class="newsletter-form" data-toggle="validator">
+                            <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
+
+                            <button class="btn subscribe-btn" type="submit">
+                                Subscribe
+                            </button>
+
+                            <div id="validator-newsletter" class="form-result"></div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Subscribe Form -->
+
+               
+
+        <!-- Essential JS -->
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/popper.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="static/js/jquery.meanmenu.js"></script>
+        <!-- Nice Select JS -->
+        <script src="static/js/jquery.nice-select.min.js"></script>
+        <!-- Mixitup JS -->
+        <script src="static/js/jquery.mixitup.min.js"></script>
+        <!-- Counter JS -->
+        <script src="static/js/waypoints.min.js"></script>
+        <script src="static/js/jquery.counterup.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="static/js/owl.carousel.min.js"></script>
+        <!-- Form Ajaxchimp JS -->
+        <script src="static/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator JS -->
+        <script src="static/js/form-validator.min.js"></script>
+        <!-- Contact JS -->
+        <script src="static/js/contact-form-script.js"></script>
+        <!-- Wow JS -->
+        <script src="static/js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+        <!-- Custom JS -->
+        <script src="static/js/custom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/meanmenu.css')}}">
+        <!-- Icofont -->
+        <link rel="stylesheet" href="C:/Users/Mahajan/Desktop/SIH2020 july/icofont/icofont.min.css">
+        <link rel="stylesheet" href="static/icofont/icofont.min.css">
+        <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+
+        <!-- Nice Select JS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/nice-select.css')}}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/owl.theme.default.min.css')}}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/animate.css')}}">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/flaticon.css')}}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/style.css')}}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/responsive.css')}}">
+
+        <link rel="stylesheet" href="{{url_for('static', filename= 'css/try.css')}}">
+       <title>Recruit Uttarakhand</title>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+        <style>
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height:380px;
+  margin:auto;
+  width:1250px;
+}
+.footer {
+    background-color:#ffd9b3;
+    background: -webkit-gradient(linear, left top, right top, from(#ffd9b3), color-stop(63%, #ffb366));
+    color: #FFFFFF;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container1 {
+    padding: 60px 0;
+    margin: auto;
+}
+.hoc {
+    display: block;
+    margin: 0 auto;
+}
+.clear, .clear::after, .group, .group::after {
+    clear: both;
+}
+
+
+.parent-container{
+
+position: relative;
+
+
+
+}
+
+.form{
+
+position: absolute;
+
+width:50%;
+
+height: 10%;
+
+
+
+left: 25%;
+
+}
+
+</style>
+<style>
+.zoom {
+  transition: transform .2s; /* Animation */
+  width: 600px;
+  height: 300px;
+  margin: auto;
+  margin-left:0px;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+body, html {
+  height: 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("static/no1.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+</style>
+
+        <title>Recruit Uttarakhand</title>
+
+        <link rel="icon" type="image/png" href="static/title1.png">
+    </head>
+    <body>
+
+        <!-- Preloader -->
+       
+        <!-- End Preloader -->
+
+        <!-- Start Navbar Area -->
+{% if session.logged_in %}
+        <style>
+        .main-nav nav .navbar-nav .nav-item {
+        position: relative;
+        padding: 15px 8px;
+        }
+        </style>
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html"  style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" >
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%">
+                                <li class="nav-item">
+                                    <a href="{{url_for('cdashboard')}}" class="nav-link dropdown-toggle">Dashboard </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatedetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('joblist')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('joblist')}}" class="nav-link">Job List</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">Saved Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('myapplications')}}" class="nav-link">My Applications</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companylist')}}" class="nav-link">Companies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in %}
+                                <a class="login-btn" href="/logout">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div> 
+        {% elif session.logged_in_company %}
+        <style>
+        .main-nav nav .navbar-nav .nav-item {
+        position: relative;
+        padding: 15px 8px;
+        }
+        </style> 
+        <div class="navbar-area fixed-top">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo" >
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html"  style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px">
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" >
+                        
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{url_for('compdashboard')}}" class="nav-link dropdown-toggle">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companydetails')}}" class="nav-link">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('companywisejobs')}}" class="nav-link dropdown-toggle">Jobs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{url_for('postajob')}}" class="nav-link"> Post A New Job</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobs')}}" class="nav-link">Posted Jobs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{url_for('companywisejobsapps')}}" class="nav-link">Applications Recieved</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('candidatelist')}}" class="nav-link">Candidates</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn" style="float: right">
+                                {% if session.logged_in_company %}
+                                <a class="login-btn" href="/logout_company">Logout</a>
+                                
+                                {% else %}
+                                <a class="login-btn" href="/login">Login</a>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="navbar-area fixed-top" style="text-align: right;">
+
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo">
+                    <img src="static/logo1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <a class="navbar-brand" href="index.html" style="float: left;  padding-top: 0px; margin: 0px; padding: 0px; margin-left: 40px;">
+                    <img src="static/logo1.png" alt="Logo" style="height:53px; width: 90px"> </a>
+
+                </a>
+                <div class="container" style="max-width: 100%">
+                    <nav class="navbar navbar-expand-md navbar-light" style="margin-bottom:0px;">
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav" style="padding: 0% 0% 0% 25%;">
+                                <li class="nav-item">
+                                    <a href="{{ url_for('home')}}" class="nav-link dropdown-toggle">Home </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('about')}}" class="nav-link">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('joblist')}}" class="nav-link dropdown-toggle">Jobs </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Blogs</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('blog')}}" class="nav-link">Read Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url_for('addblog')}}" class="nav-link">Write a Blog</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('contactform')}}" class="nav-link">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="common-btn">
+                                <a class="login-btn" href="{{url_for('login')}}">
+                                    <i class="icofont-plus-square"></i>
+                                    Login
+                                </a>
+                                <a class="sign-up-btn" href="{{url_for('create_account')}}">
+                                    <i class="icofont-user-alt-4"></i>
+                                    Sign Up
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- End Navbar Area -->
+
+        <!-- Page Title -->
+        <div class="parallax">
+        <div class="page-title-area" style="background:-webkit-gradient(linear, left top, right top, from(#ffd9b3), color-stop(63%, #ffb366)); height:250px; width:100%;">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-text">
+                            <h2>About</h2>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-simple-right"></i>
+                                </li>
+                                <li>About</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- End Page Title -->
+        
+    
+        <div class="parallax">
+        <div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td>
+                          <div class="col-sm-6 col-lg-4">
+                                    <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                        <div class="blog-top" style="width:350px">
+                                            <a href="blog-details.html">
+                                                <img class='zoom' src="static/mahesh.jpg" alt="Blog">
+                                            </a>
+
+                                            <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>20th September, 1998</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    <td style="font-family:Comic Sans MS; color:#000000;width:750px">
+                        <div class="container" style="float:right;text-align:center">
+                            <h1><b>Mahesh Mahajan</b></h1>
+                            <h3>Full Stack Developer</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduated from Mumbai University</h6>
+                            <h6>Placed in <a target="_blank" style="color:#d966ff" href="https://www.capgemini.com/in-en/">Capgemini India Pvt. Ltd.</a></h6>
+                            <h6>Email: <i>maheshmahajan.20998@gmail.com</i></h6>
+                            <h6><i>Connect me on <a href="https://www.linkedin.com/in/mahesh-mahajan">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                         </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+   
+    <div class="parallax">
+    <div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="font-family:Comic Sans MS; color:#000000; width:750px">
+                            <div class="container" style="text-align: center;">
+                            <h1><b>Neha Patil</b></h1>
+                            <h3>Full Stack Developer</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduated from Mumbai University</h6>
+                            <h6>Placed in <a target="_blank" style="color:#d966ff" href="https://www.lntinfotech.com/">Larsen & Toubro Infotech Pvt. Ltd.</a></h6>
+                            <h6>Email: <i>nehamp.308@gmail.com</i></h6>
+                            <h6><i>Connect me on <a target="_blank" href="linkedin.com/in/patil-neha-a0600a181">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                            </div>
+                          </td>
+                        <td>
+                            <div class="col-sm-6 col-lg-4">
+                            <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                <div class="blog-top" style="width:350px">
+                                    <a href="blog-details.html">
+                                       <center> <img class='zoom' src="static/neha.jpg" alt="Blog"></center>
+                                    </a>
+
+                                    <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>3rd August, 1998</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+</div>
+
+   
+<div class="parallax">
+<div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="font-family:Comic Sans MS; color:#000000">
+                          <div class="col-sm-6 col-lg-4">
+                                    <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                        <div class="blog-top" style="width:350px">
+                                            <a href="blog-details.html">
+                                                <img class='zoom' src="static/pranali1.jpg" alt="Blog">
+                                            </a>
+
+                                            <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>12th November, 1998</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    <td style="font-family:Comic Sans MS; color:#000000; width:750px">
+                        <div class="container" style="float:right;text-align: center">
+                            <h1><b>Pranali Sawant</b></h1>
+                            <h3>Full Stack Developer</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduated from Mumbai University</h6>
+                            <h6>Placed in <a target="_blank" style="color:#d966ff" href="https://www.infosys.com/">Infosys Ltd.</a></h6>
+                            <h6>Email: <i>sawantpranali2429@gmail.com</i></h6>
+                            <h6><i>Connect me on <a target="_blank" href="#">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                         </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <div class="parallax">
+    <div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="font-family:Comic Sans MS; color:#000000; width:750px">
+                            <div class="container" style="float:right;text-align: center">
+                            <h1><b>Preetam B. A.</b></h1>
+                            <h3>Backend Developer (M.L. & Database)</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduating from Mumbai University</h6>
+                            <h6>Intern at <a target="_blank" style="color:#d966ff" href="https://www.jsw.in/">JSW Steels Pvt. Ltd.</a></h6>
+                            <h6>Email: <i>preetamba17ite@student.mes.ac.in</i></h6>
+                            <h6><i>Connect me on <a target="_blank" href="linkedin.com/in/preetam-b-a-162770154">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                            </div>
+                          </td>
+                        <td style="font-family:Comic Sans MS; color:#000000">
+                            <div class="col-sm-6 col-lg-4">
+                            <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                <div class="blog-top" style="width:350px">
+                                    <a href="blog-details.html">
+                                        <img class='zoom' src="static/preetam.jpg" alt="Blog">
+                                    </a>
+
+                                    <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>23rd August, 1999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+</div>
+
+
+<div class="parallax">
+<div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="font-family:Comic Sans MS; color:#000000">
+                          <div class="col-sm-6 col-lg-4">
+                                    <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                        <div class="blog-top" style="width:350px">
+                                            <a href="blog-details.html">
+                                                <img class='zoom' src="static/lovkesh.jpg" alt="Blog">
+                                            </a>
+
+                                            <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>21 May, 2020</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    <td style="font-family:Comic Sans MS; color:#000000;width:750px">
+                        <div class="container" style="float:right;text-align: center">
+                            <h1><b>Lovkesh Sharma</b></h1>
+                            <h3>M.L & NLP</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduated from Mumbai University</h6>
+                            <h6>Placed in <a target="_blank" style="color:#d966ff" href="https://www.lntinfotech.com/">Larsen & Toubro Infotech Pvt. Ltd.</a></h6>
+                            <h6>Email: <i>luckysharma698@gmail.com</i></h6>
+                            <h6><i>Connect me on <a target="_blank" href="linkedin.com/in/lovkesh-sharma-a9111517b">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                         </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+  
+    </div>
+
+    <div class="parallax">
+    <div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="font-family:Comic Sans MS; color:#000000; width:750px">
+                            <div class="container" style="float:right; text-align:center">
+                            <h1><b>Karan Nair</b></h1>
+                            <h3>Full Stack Developer</h3>
+                            <h6>Bachelor's Degree in Information Technology</h6>
+                            <h6>Graduated from Mumbai University</h6>
+                            <h6>Placed in <a target="_blank" style="color:#d966ff" href="https://www.infosys.com/">Infosys Ltd.</a></h6>
+                            <h6>Email: <i>nairksce16e@student.mes.ac.in</i></h6>
+                            <h6><i>Connect me on <a target="_blank" href="linkedin.com/in/patil-neha-a0600a181">LinkedIn</a></i></h6>
+                            <br>
+                            <br>
+                            <br>
+                            </div>
+                          </td>
+                        <td style="font-family:Comic Sans MS; color:#000000">
+                            <div class="col-sm-6 col-lg-4">
+                            <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                <div class="blog-top" style="width:350px">
+                                    <a href="blog-details.html">
+                                        <img class='zoom' src="static/karan.jpg" alt="Blog">
+                                    </a>
+
+                                    <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>21 May, 2020</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+
+    </div>
+
+<div class="parallax">
+<div class="bgded overlay" style="background-image:url('static/da.jpg'); height:500px; ">
+        <section class="hoc container1 clear">
+            <div class="card">
+                <br><br>
+                <table>
+                    <tr>
+                        <td>
+                          <div class="col-sm-6 col-lg-4">
+                                    <div class="blog-item wow fadeInUp" data-wow-delay=".3s" style="margin-left:50px">
+                                        <div class="blog-top" style="width:350px">
+                                            <a href="blog-details.html">
+                                                <img class='zoom' src="static/images/home-1/blog/1.jpg" alt="Blog">
+                                            </a>
+
+                                            <span><b style="font-family:Comic Sans MS">Date of Birth:</b><br>21 May, 2020</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    <td style="font-family:Comic Sans MS; color:#000000">
+                        <div class="container" style="float:right">
+                            Use a production WSGI server instead.
+                             * Debug mode: on
+                             * Restarting with stat
+                             * Debugger is active!
+                             * Debugger PIN: 287-353-670
+                             * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+                         </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    </div>
+
+    <div class="footer" style="font-size: 20px;"><center><p> © 2000 – 2018 Code_Crunch Pvt.Ltd All Rights reserved<br>
+    All trademarks and copyrights held by respective owners. <br>
+        Terms and Policy</p></center></div>
+
+    
+
+                
+
+
+        <!-- Essential JS -->
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/popper.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="static/js/jquery.meanmenu.js"></script>
+        <!-- Nice Select JS -->
+        <script src="static/js/jquery.nice-select.min.js"></script>
+        <!-- Mixitup JS -->
+        <script src="static/js/jquery.mixitup.min.js"></script>
+        <!-- Counter JS -->
+        <script src="static/js/waypoints.min.js"></script>
+        <script src="static/js/jquery.counterup.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="static/js/owl.carousel.min.js"></script>
+        <!-- Form Ajaxchimp JS -->
+        <script src="static/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator JS -->
+        <script src="static/js/form-validator.min.js"></script>
+        <!-- Contact JS -->
+        <script src="static/js/contact-form-script.js"></script>
+        <!-- Wow JS -->
+        <script src="static/js/wow.min.js"></script>
+        <!-- Custom JS -->
+        <script src="static/js/custom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous"></script>
+
+    </body>
+</html>
